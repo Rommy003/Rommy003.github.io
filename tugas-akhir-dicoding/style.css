@@ -1,0 +1,147 @@
+/* Variabel Warna agar mudah diatur */
+:root {
+    --primary-color: #0f172a;    /* Biru Gelap Modern */
+    --secondary-color: #10b981;  /* Hijau Emerald */
+    --accent-color: #38bdf8;     /* Biru Muda */
+    --bg-body: #f8fafc;
+    --text-main: #1e293b;
+    --white: #ffffff;
+}
+
+/* Reset Dasar */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    line-height: 1.8;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, var(--primary-color), #1e293b);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 3rem 1rem;
+    border-bottom: 4px solid var(--secondary-color);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+}
+
+/* Navigasi */
+nav {
+    background-color: var(--primary-color);
+    padding: 15px 0;
+    position: sticky; /* Tetap di atas saat di-scroll */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+nav ul {
+    list-style: none;
+    display: flex; 
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--secondary-color);
+}
+
+/* SYARAT: Layout Utama menggunakan Flexbox */
+.content-wrapper {
+    display: flex;
+    flex-wrap: wrap; 
+    max-width: 1100px; /* Agar konten tidak terlalu lebar di monitor besar */
+    margin: 30px auto;
+    padding: 0 20px;
+    gap: 30px;
+}
+
+/* Bagian Artikel */
+article {
+    flex: 3; 
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+article h2 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    border-left: 5px solid var(--secondary-color);
+    padding-left: 15px;
+}
+
+/* Bagian Aside (Sidebar) */
+aside {
+    flex: 1; 
+    background: var(--white);
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-top: 5px solid var(--secondary-color);
+    height: fit-content;
+}
+
+aside img {
+    max-width: 150px;
+    height: 150px;
+    object-fit: cover; /* Agar gambar tidak gepeng */
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 3px solid var(--secondary-color);
+}
+
+aside h3 {
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 50px;
+}
+
+/* Responsif untuk HP (Layar di bawah 768px) */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column; /* Artikel dan Aside akan bertumpuk atas-bawah */
+    }
+    
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
