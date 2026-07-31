@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Romy Zaenul Alam</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman&family=Georgia&display=swap');
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #000;
+            background: #e0e0e0;
+        }
+
+        @media print {
+            body { background: #fff; }
+            .page {
+                margin: 0; border: none; border-radius: 0;
+                width: 100%; box-shadow: none;
+                padding: 12mm 15mm;
+            }
+            .no-print { display: none !important; }
+            /* Avoid page break inside items */
+            .section { page-break-inside: avoid; }
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 15mm 18mm;
+            margin: 10mm auto;
+            background: #fff;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+
+        /* ===== NO-PRINT TOOLBAR ===== */
+        .print-bar {
+            background: #1a237e;
+            color: white;
+            padding: 12px 20px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+        .print-btn {
+            background: #ffeb3b; color: #000;
+            border: none; padding: 8px 22px;
+            font-size: 14px; font-weight: bold;
+            cursor: pointer; border-radius: 4px;
+            margin-left: 15px; font-family: Arial, sans-serif;
+        }
+        .print-btn:hover { background: #fdd835; }
+
+        /* ===== HEADER ===== */
+        .header {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 14px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+        }
+
+        .photo-box {
+            width: 85px;
+            height: 100px;
+            border: 1px solid #555;
+            flex-shrink: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f0f0;
+        }
+
+        .photo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .header-info {
+            flex: 1;
+        }
+
+        .header-info h1 {
+            font-size: 18pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .contact-table {
+            font-size: 10.5pt;
+            border-collapse: collapse;
+        }
+
+        .contact-table td {
+            padding: 1px 4px;
+            vertical-align: top;
+        }
+
+        .contact-table td:first-child {
+            width: 80px;
+            font-weight: normal;
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 11.5pt;
+            font-weight: bold;
+            text-decoration: underline;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        .section p {
+            text-align: justify;
+            font-size: 10.5pt;
+        }
+
+        /* ===== PENDIDIKAN ===== */
+        .edu-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .edu-place { font-weight: bold; font-size: 11pt; }
+        .edu-date { font-size: 10.5pt; }
+        .edu-major { font-size: 10.5pt; margin-bottom: 4px; }
+
+        .matkul-label {
+            font-size: 10.5pt;
+            font-weight: bold;
+            font-style: italic;
+            margin-bottom: 2px;
+        }
+
+        ul.matkul-list {
+            list-style-type: disc;
+            padding-left: 22px;
+            font-size: 10.5pt;
+        }
+
+        ul.matkul-list li { margin-bottom: 1px; }
+
+        /* ===== SKILLS ===== */
+        .skills-row {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 8px;
+        }
+
+        .skills-col { flex: 1; }
+
+        .skills-col-title {
+            font-weight: bold;
+            font-size: 10.5pt;
+            text-decoration: underline;
+            margin-bottom: 3px;
+        }
+
+        ul.skill-list {
+            list-style-type: disc;
+            padding-left: 20px;
+            font-size: 10.5pt;
+        }
+
+        ul.skill-list li { margin-bottom: 2px; }
+
+        .lang-label {
+            font-weight: bold;
+            font-size: 10.5pt;
+            margin-top: 6px;
+            text-decoration: underline;
+        }
+
+        ul.lang-list {
+            list-style-type: disc;
+            padding-left: 20px;
+            font-size: 10.5pt;
+        }
+
+        /* ===== PROJECT ===== */
+        .project-item { margin-bottom: 8px; }
+        .project-title { font-weight: bold; font-size: 10.5pt; }
+        .project-sub { font-size: 10.5pt; font-style: italic; }
+
+        ul.proj-list {
+            list-style-type: disc;
+            padding-left: 22px;
+            font-size: 10.5pt;
+        }
+
+        ul.proj-list li { margin-bottom: 1px; }
+
+        /* ===== SERTIFIKASI ===== */
+        ul.cert-list {
+            list-style-type: none;
+            padding-left: 0;
+            font-size: 10.5pt;
+        }
+
+        ul.cert-list li {
+            margin-bottom: 2px;
+            padding-left: 12px;
+            position: relative;
+        }
+
+        ul.cert-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="print-bar no-print">
+        <span>📄 CV sudah siap. Tekan tombol di bawah untuk menyimpan sebagai PDF.</span>
+        <button class="print-btn" onclick="window.print()">🖨️ Simpan sebagai PDF</button>
+    </div>
+
+    <div class="page">
+
+        <!-- ===== HEADER ===== -->
+        <div class="header">
+            <div class="photo-box">
+                <img src="assets/images/fotoCV.jpeg" alt="Foto Romy">
+            </div>
+            <div class="header-info">
+                <h1>Romy Zaenul Alam</h1>
+                <table class="contact-table">
+                    <tr>
+                        <td>Alamat</td>
+                        <td>: Garut, Jawa Barat</td>
+                    </tr>
+                    <tr>
+                        <td>WhatsApp</td>
+                        <td>: 0858-7609-8244</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>: <a href="mailto:2306019@itg.ac.id" style="color: inherit; text-decoration: none;">2306019@itg.ac.id</a></td>
+                    </tr>
+                    <tr>
+                        <td>GitHub</td>
+                        <td>: <a href="https://github.com/Rommy003" target="_blank" style="color: inherit; text-decoration: none;">github.com/Rommy003</a></td>
+                    </tr>
+                    <tr>
+                        <td>Portofolio</td>
+                        <td>: <a href="https://rommy003.github.io" target="_blank" style="color: inherit; text-decoration: none;">rommy003.github.io</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- ===== TENTANG SAYA ===== -->
+        <div class="section">
+            <div class="section-title">Tentang Saya</div>
+            <p>
+                Mahasiswa aktif semester 6 jurusan Teknik Informatika (konsentrasi Rekayasa Perangkat Lunak) di Institut Teknologi Garut. Saya memiliki minat di bidang pengembangan aplikasi <em>mobile</em> menggunakan Flutter dan pengembangan <em>web</em> menggunakan HTML, CSS, JavaScript, PHP, dan Laravel. Saya terbiasa bekerja dengan metodologi pengembangan perangkat lunak terstruktur, menyukai tantangan logika, dan selalu berupaya menulis kode yang bersih dan mudah dipelihara. Saat ini saya sedang mengembangkan aplikasi manajemen warung berbasis <em>mobile</em> sebagai proyek mandiri nyata. Saya sangat antusias mencari kesempatan Kerja Praktik / Magang untuk berkontribusi langsung pada tim IT perusahaan.
+            </p>
+        </div>
+
+        <!-- ===== PENDIDIKAN ===== -->
+        <div class="section">
+            <div class="section-title">Pendidikan</div>
+            <div class="edu-row">
+                <span class="edu-place">Institut Teknologi Garut</span>
+                <span class="edu-date">(2023 – Sekarang)</span>
+            </div>
+            <div class="edu-major">Jurusan : Teknik Informatika (Konsentrasi Rekayasa Perangkat Lunak) &nbsp;|&nbsp; IPK : 3.18 / 4.00</div>
+
+            <div class="matkul-label">Mata Kuliah Relevan (Semester 5 & 6) :</div>
+            <ul class="matkul-list">
+                <li>Analisis Kebutuhan Perangkat Lunak</li>
+                <li>Desain & Arsitektur Perangkat Lunak</li>
+                <li>Integrasi dan Migrasi Sistem</li>
+                <li>Jaminan Kualitas Perangkat Lunak</li>
+                <li>Pengujian dan Konfigurasi Perangkat Lunak</li>
+                <li>Praktikum Pemrograman Web</li>
+                <li>Praktikum Pemrograman Mobile</li>
+            </ul>
+        </div>
+
+        <!-- ===== KEAHLIAN ===== -->
+        <div class="section">
+            <div class="section-title">Keahlian</div>
+            <div class="skills-row">
+                <div class="skills-col">
+                    <div class="skills-col-title">Hard Skill</div>
+                    <ul class="skill-list">
+                        <li>Pemrograman Mobile (Flutter, Dart)</li>
+                        <li>Pemrograman Web (HTML, CSS, JS, PHP)</li>
+                        <li>Framework Laravel</li>
+                        <li>Version Control (Git & GitHub)</li>
+                        <li>Analisis & Desain Sistem (UML)</li>
+                        <li>Pengujian Perangkat Lunak (Testing)</li>
+                    </ul>
+                </div>
+                <div class="skills-col">
+                    <div class="skills-col-title">Soft Skill</div>
+                    <ul class="skill-list">
+                        <li>Pemecahan Masalah (Problem Solving)</li>
+                        <li>Berpikir Analitis & Logis</li>
+                        <li>Manajemen Waktu</li>
+                        <li>Kemampuan Belajar Mandiri</li>
+                        <li>Kerja Tim (Teamwork)</li>
+                        <li>Komunikasi yang Baik</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="lang-label">Bahasa</div>
+            <ul class="lang-list">
+                <li>Bahasa Indonesia – Aktif (Fasih)</li>
+                <li>Bahasa Inggris – Pasif (Membaca dokumentasi teknis)</li>
+            </ul>
+        </div>
+
+        <!-- ===== PROYEK ===== -->
+        <div class="section">
+            <div class="section-title">Pengalaman Proyek</div>
+
+            <div class="project-item">
+                <div class="project-title">Aplikasi E-Commerce Mobile — Flutter / Dart (2026)</div>
+                <div class="project-sub">Proyek Praktikum Pemrograman Mobile | <a href="https://github.com/Rommy003/uas_2306019" target="_blank" style="color: inherit; text-decoration: none;">github.com/Rommy003/uas_2306019</a></div>
+                <ul class="proj-list">
+                    <li>Membangun aplikasi belanja <em>online</em> lengkap dengan katalog produk, keranjang belanja, dan alur <em>checkout</em>.</li>
+                    <li>Menerapkan desain UI yang responsif dan interaktif menggunakan Flutter.</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">Sistem Manajemen Warung (POS) — Flutter / Dart (Sedang Berjalan)</div>
+                <div class="project-sub">Proyek Mandiri</div>
+                <ul class="proj-list">
+                    <li>Merancang dan mengembangkan aplikasi <em>Point of Sale</em> untuk implementasi nyata pada usaha warung pribadi.</li>
+                    <li>Fitur meliputi manajemen stok barang, pencatatan transaksi, dan laporan penjualan harian.</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">Halaman Profil Web Responsif — HTML & CSS (2025)</div>
+                <div class="project-sub">Tugas Akhir Kelas Dicoding | <a href="https://rommy003.github.io/tugas-akhir-dicoding" target="_blank" style="color: inherit; text-decoration: none;">rommy003.github.io/tugas-akhir-dicoding</a></div>
+                <ul class="proj-list">
+                    <li>Membangun website profil responsif menggunakan murni HTML5 dan CSS3 tanpa <em>framework</em>.</li>
+                    <li>Memastikan kompatibilitas tampilan di semua ukuran layar (Desktop, Tablet, Mobile).</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ===== SERTIFIKASI ===== -->
+        <div class="section">
+            <div class="section-title">Sertifikasi</div>
+            <ul class="cert-list">
+                <li><strong>Belajar Dasar Pemrograman Web</strong> — Dicoding Indonesia (2025)</li>
+                <li><strong>Belajar Dasar Pemrograman JavaScript</strong> — Dicoding Indonesia (2025)</li>
+                <li><strong>Belajar Dasar AI</strong> — Dicoding Indonesia (2025)</li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+</html>
